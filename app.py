@@ -1,4 +1,4 @@
-from flask import Flask,render_template
+from flask import Flask,render_template,request
 
 app= Flask(__name__)
 
@@ -26,6 +26,13 @@ def lenguajes():
         "hay_lenguajes":False,
         "lenguajes": ["PHP","Python","HTML5 ","CSS3","Java","JavaScript"]}
     return render_template("lenguajes.html",data=data)
+
+
+@app.route("/datos")
+def datos():
+    # print(request.args)
+    valor1= request.args.get("valor1")
+    return "Estos son los datos: {0}".format(valor1)
 
 @app.route("/contacto")
 def contacto():
