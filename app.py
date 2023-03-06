@@ -2,9 +2,18 @@ from flask import Flask,render_template,request
 
 app= Flask(__name__)
 
+@app.before_request
+def before_request():
+    print("Antes de la peticion")
+
+@app.after_request
+def after_request(response):
+    print("Despues de la peticion")
+    return response
 
 @app.route("/")
 def index():
+    print("Entrando a la vista")
     data={
         "titulo":"Pagina de libros",
         "encabezado":"Bienvenido"
