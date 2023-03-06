@@ -11,6 +11,14 @@ def index():
     }
     return render_template("index.html",data=data)
 
+@app.route("/suma/<int:valor1>/<int:valor2>")
+def suma(valor1,valor2):
+    return "La suma es {0}".format((valor1+valor2))
+
+@app.route("/saludo/<nombre>")
+def saludo(nombre):
+    return "Hola {0}".format(nombre)
+
 @app.route("/contacto")
 def contacto():
     data={
