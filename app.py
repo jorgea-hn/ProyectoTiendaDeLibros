@@ -19,6 +19,14 @@ def suma(valor1,valor2):
 def saludo(nombre):
     return "Hola {0}".format(nombre)
 
+
+@app.route("/lenguajes")
+def lenguajes():
+    data={
+        "hay_lenguajes":False,
+        "lenguajes": ["PHP","Python","HTML5 ","CSS3","Java","JavaScript"]}
+    return render_template("lenguajes.html",data=data)
+
 @app.route("/contacto")
 def contacto():
     data={
